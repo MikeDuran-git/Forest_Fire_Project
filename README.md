@@ -33,8 +33,26 @@ The `Forest` class simulates the forest grid. It includes the following attribut
 ## ToricForest Class
 The `ToricForest` subclass extends the `Forest` class to simulate a forest with toroidal (borderless) edges. It overrides the `is_cell_neighbour_burning_tree(self, i, j)` method to account for the toroidal nature of the grid.
 
+
+## ToricForestGui Class
+The `ToricForestGui` class extends the `ToricForest` class to provide a graphical user interface for the simulation. It uses the Tkinter library to create a visual grid of the forest, allowing users to interactively start the fire and observe its spread. Key functionalities include:
+- Interactive grid creation where each cell represents a tree with its state visually differentiated by color.
+- Ability to start the fire by clicking on a tree in the grid.
+- Real-time visual updates of the forest fire spread.
+- Options to restart the simulation and close the application through GUI buttons.
+
+It has the following methods:
+- `__init__(self, rows, cols, probability=None)`: Constructor method that initializes the ToricForest with given rows, columns, and probability, and sets up the Tkinter window and essential GUI components.
+- `run(self, n)`: Prepares and displays the forest grid in the GUI. It takes `n` as the number of generations for the simulation. Each cell in the grid represents a tree and is visualized as a label in Tkinter.
+- `on_label_click(self, event, c, r, n)`: An event handler triggered when a tree (label) in the grid is clicked. It starts the fire from the clicked tree if it is healthy and begins the simulation for `n` generations.
+- `update_visual_grid(self)`: Updates the colors of the labels in the GUI to reflect the current state of each tree in the forest, providing a real-time visualization of the fire spread.
+- `widget_exists(self, widget)`: Utility method to check if a Tkinter widget exists. It helps in safely managing GUI components.
+- `reset_game(self)`: Resets the game to its initial state. It clears the current grid and resets the forest state, then redraws the initial GUI layout for a new simulation.
+- `end_the_game(self)`: Closes the Tkinter window and ends the application. This provides a way to exit the simulation.
+- `generation_run(self, n_generation, current_generation=0)`: Handles the logic for running each generation of the simulation. It updates the forest state and the GUI, checks for the end of the simulation, and schedules the next generation update.
+
 ## Usage
 
-You can create an instance of the `Forest` or `ToricForest` class and use it to model the propagation of a forest fire. The script includes functionalities for setting initial tree states, igniting specific trees, and running the simulation for a specified number of generations.
+Create an instance of the `Forest` or `ToricForest` class for a console-based simulation, or use the `ToricForestGui` class for a graphical representation. Set initial tree states, ignite specific trees, and run the simulation for a desired number of generations to observe the dynamics of forest fire spread.
 
 Feel free to modify the parameters and run multiple generations to observe the dynamics of forest fire spread.
