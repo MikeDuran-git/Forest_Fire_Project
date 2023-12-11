@@ -11,7 +11,7 @@ The Tree class represents an individual tree in the forest. It includes the foll
 - `__init__(self)`: Constructor method to initialize a tree's state (0: Empty, 1: Healthy, 2: Burning, 3: Burned).
 getState(self): A property method to retrieve the tree's state.
 setState(self, value): Method to change the tree's state.
-- `__str__(self)`: Returns a symbol ('.', 'T', 'B', 'F') representing the tree's state for console display.
+- `__str__(self)`: Returns a symbol ('.', 'T', 'F', 'B') representing the tree's state for console display.
 is_neighbour_burning_tree(self, is_burning): Updates the tree's state based on the presence of a burning tree in the neighborhood.
 
 ## Forest Class
